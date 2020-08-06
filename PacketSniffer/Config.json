@@ -1,0 +1,6 @@
+{
+  "ServerIp": "127.0.0.1",
+  "LoginAgentPort": 3550,
+  "ZoneAgentPort": 9867,
+  "ShowUnique": true
+}
