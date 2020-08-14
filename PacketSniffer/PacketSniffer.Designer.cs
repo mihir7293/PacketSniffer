@@ -38,6 +38,8 @@
             this.dataGridPackets = new System.Windows.Forms.DataGridView();
             this.cmbDeviceList = new System.Windows.Forms.ComboBox();
             this.hexbData = new Be.Windows.Forms.HexBox();
+            this.rb562 = new System.Windows.Forms.RadioButton();
+            this.rbReturns = new System.Windows.Forms.RadioButton();
             this.status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPackets)).BeginInit();
             this.SuspendLayout();
@@ -123,11 +125,35 @@
             this.hexbData.UseFixedBytesPerLine = true;
             this.hexbData.VScrollBarVisible = true;
             // 
+            // rb562
+            // 
+            this.rb562.AutoSize = true;
+            this.rb562.Checked = true;
+            this.rb562.Location = new System.Drawing.Point(570, 10);
+            this.rb562.Name = "rb562";
+            this.rb562.Size = new System.Drawing.Size(43, 17);
+            this.rb562.TabIndex = 7;
+            this.rb562.TabStop = true;
+            this.rb562.Text = "562";
+            this.rb562.UseVisualStyleBackColor = true;
+            // 
+            // rbReturns
+            // 
+            this.rbReturns.AutoSize = true;
+            this.rbReturns.Location = new System.Drawing.Point(619, 10);
+            this.rbReturns.Name = "rbReturns";
+            this.rbReturns.Size = new System.Drawing.Size(62, 17);
+            this.rbReturns.TabIndex = 8;
+            this.rbReturns.Text = "Returns";
+            this.rbReturns.UseVisualStyleBackColor = true;
+            // 
             // PacketSniffer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 489);
+            this.Controls.Add(this.rbReturns);
+            this.Controls.Add(this.rb562);
             this.Controls.Add(this.hexbData);
             this.Controls.Add(this.dataGridPackets);
             this.Controls.Add(this.status);
@@ -159,5 +185,7 @@
         private System.Windows.Forms.DataGridView dataGridPackets;
         private System.Windows.Forms.ComboBox cmbDeviceList;
         private Be.Windows.Forms.HexBox hexbData;
+        private System.Windows.Forms.RadioButton rb562;
+        private System.Windows.Forms.RadioButton rbReturns;
     }
 }

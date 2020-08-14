@@ -47,6 +47,8 @@ namespace PacketSniffer
         private PacketArrivalEventHandler arrivalEventHandler;
         private CaptureStoppedEventHandler captureStoppedEventHandler;
 
+        ClientVer clientver = ClientVer.v562;
+
         Config config;
         Crypt crypt;
         public PacketSniffer()
@@ -101,6 +103,11 @@ namespace PacketSniffer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (rb562.Checked)
+                clientver = ClientVer.v562;
+            else if (rbReturns.Checked)
+                clientver = ClientVer.v578;
+
             device = CaptureDeviceList.Instance[cmbDeviceList.SelectedIndex];
             device.Open();
             device.Filter = "tcp and (port " + config.LoginAgentPort + " or port " + config.ZoneAgentPort + ") and host " + config.ServerIp;
@@ -177,7 +184,7 @@ namespace PacketSniffer
                         //       to enormous sizes. Packets should be dropped in these
                         //       cases
 
-                        var packetWrapper = new A3Packet(packet, config, crypt);
+                        var packetWrapper = new A3Packet(packet, config, crypt, clientver);
                         if (config.ShowUnique && packetStrings.Where(x => x.Length == packetWrapper.Length).Count() == 0)
                         {
 

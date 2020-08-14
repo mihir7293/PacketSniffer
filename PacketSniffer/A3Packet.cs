@@ -18,7 +18,7 @@ namespace PacketSniffer
         public string Type { get; private set; }
         public string Proto { get; private set; }
 
-        public A3Packet(RawCapture p, Config config, Crypt crypt)
+        public A3Packet(RawCapture p, Config config, Crypt crypt, ClientVer clientVer)
         {
             this.p = p;
             Packet packet = Packet.ParsePacket(p.LinkLayerType, p.Data);
@@ -40,7 +40,7 @@ namespace PacketSniffer
             {
                 byte[] temp = new byte[tcpPacket.PayloadData.Length];
                 Array.Copy(tcpPacket.PayloadData, temp, tcpPacket.PayloadData.Length);
-                crypt.Decrypt(ref temp);
+                crypt.Decrypt(ref temp, clientVer);
                 Data = temp;
                 if (Data.Length > 11)
                 {
